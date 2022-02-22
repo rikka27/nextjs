@@ -1,7 +1,7 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import React from 'react';
 
-export const cacheStaleTiming = () => {
+const CacheStaleTiming = () => {
   return <div>cacheStaleTiming</div>;
 };
 
@@ -14,3 +14,5 @@ export const getServerSideProps: GetServerSideProps = async (
     props: {},
   };
 };
+
+export default CacheStaleTiming;

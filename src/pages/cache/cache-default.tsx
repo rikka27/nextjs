@@ -5,7 +5,7 @@ import {
 } from 'next';
 import React from 'react';
 
-export const CacheDefalt = () => {
+const CacheDefalt = () => {
   return <div>CacheDefalt</div>;
 };
 
@@ -19,3 +19,4 @@ export const getServerSideProps: GetServerSideProps = async (
     props: {},
   };
 };
+export default CacheDefalt;

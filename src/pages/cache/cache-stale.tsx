@@ -1,7 +1,7 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import React from 'react';
 
-export const CacheStale = () => {
+const CacheStale = () => {
   return <div>CacheStale</div>;
 };
 
@@ -12,3 +12,5 @@ export const getServerSideProps: GetServerSideProps = async (
   await new Promise((resolve) => setTimeout(resolve, 3000));
   return { props: {} };
 };
+
+export default CacheStale;
