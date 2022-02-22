@@ -1,9 +1,24 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+/* eslint-disable react/display-name */
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React from 'react';
+import styles from '../styles/Home.module.css';
 
-const Home: NextPage = () => {
+const Home: NextPage = (...rest) => {
+  const router = useRouter();
+  const handleGoToAbout = () => {
+    router.push({
+      pathname: '/about',
+      query: {
+        useId: '1',
+        status: true,
+      },
+    });
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,8 +29,17 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to{' '}
+          <Link href={'/about'} passHref>
+            <a>About</a>
+          </Link>
+          <Link href={'/posts'} locale={'vi'}>
+            <a>Post</a>
+          </Link>
         </h1>
+        <button type="button" onClick={handleGoToAbout}>
+          go to about
+        </button>
 
         <p className={styles.description}>
           Get started by editing{' '}
@@ -66,7 +90,7 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
