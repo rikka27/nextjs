@@ -1,8 +1,20 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CacheStaleTiming = () => {
-  return <div>cacheStaleTiming</div>;
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    setInterval(() => {
+      setCount((state) => state + 1);
+    }, 1000);
+  }, []);
+
+  return (
+    <div>
+      {count}
+      <h1>cacheStaleTiming</h1>
+    </div>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (
