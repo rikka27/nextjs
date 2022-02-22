@@ -8,7 +8,7 @@ const CacheStale = () => {
 export const getServerSideProps: GetServerSideProps = async (
   ctx: GetServerSidePropsContext
 ) => {
-  ctx.res.setHeader('cache-control', 's-max-age=5, stale-while-revalidate');
+  ctx.res.setHeader('cache-control', 's-maxage=5, stale-while-revalidate');
   await new Promise((resolve) => setTimeout(resolve, 3000));
   return { props: {} };
 };

@@ -12,9 +12,8 @@ const CacheDefalt = () => {
 export const getServerSideProps: GetServerSideProps = async (
   ctx: GetServerSidePropsContext
 ) => {
-  ctx.res.setHeader('cache-control', 's-max-age=10');
+  ctx.res.setHeader('cache-control', 's-maxage=10');
   await new Promise((resolve) => setTimeout(resolve, 3000));
-
   return {
     props: {},
   };
